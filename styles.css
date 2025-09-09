@@ -1,0 +1,458 @@
+:root {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --border: #dddfe2;
+    --text: #1c1e21;
+    --muted: #606770;
+    --accent: #1877F2;  /* Facebook blue */
+    --accent-2: #42b72a;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* NAV */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 0 16px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    height: 56px;
+}
+
+.nav .brand {
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.nav .gap {
+    flex: 1;
+}
+
+.userbox {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+button {
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    height: 36px;
+}
+
+button:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+#loginBtn {
+    border-color: rgba(24, 119, 242, 0.5);
+}
+
+#loginBtn:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.25);
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.leftCol, .rightCol {
+    min-width: 0;
+}
+
+@media (min-width: 980px) {
+    .layout {
+        grid-template-columns: 320px 1fr;
+    }
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+
+h2, h3 {
+    margin: 0 0 10px;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* === Compose (one line) === */
+.composeRow {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    background: #222;
+}
+
+.composeTrigger {
+    text-align: left;
+    color: var(--muted);
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+}
+
+.composeTrigger:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.postBtn {
+    background: linear-gradient(180deg, #1b82ff, #176be0);
+    border-color: rgba(24, 119, 242, 0.8);
+}
+
+/* === Filters: single row === */
+.filters.card {
+    display: block;
+}
+
+.filtersRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filtersRow label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.filtersRow input[type="radio"] {
+    transform: translateY(1px);
+}
+
+/* LIST / ITEM */
+.list {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;  /* 📱 Default: one column */
+}
+
+@media (min-width: 980px) {
+    .list {
+        grid-template-columns: 1fr;  /* 💻 Big screen: 1 column */
+    }
+}
+
+@media (min-width: 1280px) {
+    .list {
+        grid-template-columns: 1fr;  /* 🖥️ Larger: 1 column */
+    }
+}
+
+.item {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.itemHead {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.item .avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.authorBtn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.badge {
+    font-size: 11px;
+    color: #fff;
+    background: var(--accent);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+/* CONTENT */
+pre.code {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    max-height: 320px;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.actions .voteBtn {
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid var(--border);
+}
+
+.actions .voteBtn:last-child {
+    border-right: none;
+}
+
+.count {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* voteBtn-এর নতুন স্টাইল */
+.voteBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: var(--secondary-color);
+    color: var(--text);
+    border-radius: 6px;
+}
+
+.workBtn.active {
+    background: #42b72a;
+    color: #fff;
+    border-color: #42b72a;
+}
+
+.brokeBtn.active {
+    background: #f02849;
+    color: #fff;
+    border-color: #f02849;
+}
+
+.voteBtn.active .count {
+    color: #fff;
+}
+
+.voteBtn:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* Edit & Delete button hover effect */
+.item:hover .editBtn, .item:hover .delBtn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.editBtn, .delBtn {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 8px;
+    color: var(--muted);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.editBtn:hover, .delBtn:hover {
+    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+}
+
+
+/* Disabled state for buttons */
+button.disabled, button[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* PAGINATION */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.pagination button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* === Modal: FB-bluish, not transparent === */
+.modal.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: radial-gradient(1200px 700px at 30% -10%, rgba(24, 119, 242, 0.18), rgba(0, 0, 0, 0.65));
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.modalBox {
+    width: 100%;
+    max-width: 720px;
+    background: #0f1726; /* deep navy */
+    border: 1px solid rgba(24, 119, 242, 0.35);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.iconBtn {
+    border-radius: 8px;
+}
+
+.iconBtn:hover {
+    border-color: var(--accent);
+}
+
+/* FORM */
+.form {
+    display: grid;
+    gap: 12px;
+}
+
+label {
+    color: var(--muted);
+    font-size: 14px;
+    display: grid;
+    gap: 6px;
+}
+
+.form input, .form select, .form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    outline: none;
+}
+
+.form input:focus, .form select:focus, .form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.25);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 24px;
+    border-top: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.footGrid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+}
+
+.footer .links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    color: var(--text);
+    opacity: .9;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

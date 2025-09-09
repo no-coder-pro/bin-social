@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - BIN Social</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./profile.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="brand"><a href="/">BIN Social</a></div>
+        <div class="gap"></div>
+        <div id="userBox" class="userbox">Not logged in</div>
+        <button id="loginBtn">Login with Google</button>
+        <button id="logoutBtn" style="display:none">Logout</button>
+    </nav>
+
+    <main class="profile-container">
+        <header class="profile-header">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img id="profileAvatar" src="https://via.placeholder.com/150" alt="Profile Picture">
+                </div>
+                <div class="profile-name">
+                    <h1 id="profileName">User Name</h1>
+                </div>
+            </div>
+            <nav class="profile-nav">
+                <ul>
+                    <li><a href="#" class="active">Posts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Friends</a></li>
+                    <li><a href="#">Photos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="profile-content">
+            <aside class="left-col">
+                <div class="card">
+                    <h3>About</h3>
+                    <p id="profileBio">Bio goes here...</p>
+                </div>
+            </aside>
+            <section class="right-col">
+                <div class="card">
+                    <h2>Posts</h2>
+                    <div id="profile-posts" class="list">
+                        <!-- Posts will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footGrid">
+            <div>© <span id="year"></span> BIN Social</div>
+            <div class="links">
+                <a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a>
+                <a id="fbLink" href="#" target="_blank" rel="noopener">Facebook</a>
+                <a id="ghLink" href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+    <script type="module" src="./profile.js"></script>
+</body>
+</html>

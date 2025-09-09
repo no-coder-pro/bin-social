@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="bn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BIN Social</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <nav class="nav">
+        <div class="brand">BIN Social</div>
+        <div class="gap"></div>
+        <div id="userBox" class="userbox">Not logged in</div>
+        <button id="loginBtn">Login with Google</button>
+        <button id="logoutBtn" style="display:none">Logout</button>
+    </nav>
+
+    <main class="container layout">
+        <aside class="leftCol">
+            <div class="card composeCard">
+                <div class="composeRow">
+                    <a href="/profile.html"><img id="meAvatar" class="avatar" alt="me" /></a>
+                    <button id="openComposer" class="composeTrigger">wanna share bin?</button>
+                    <button id="openComposer2" class="postBtn">Post</button>
+                </div>
+            </div>
+
+            <div class="filters card">
+                <h3>Filters</h3>
+                <div class="filtersRow">
+                    <label><input type="radio" name="tab" value="all" checked> All</label>
+                    <label><input type="radio" name="tab" value="admin"> Admin</label>
+                    <label><input type="radio" name="tab" value="user"> User</label>
+                </div>
+            </div>
+        </aside>
+
+        <section class="rightCol">
+            <div class="card">
+                <h2>Recent Bins</h2>
+                <div id="list" class="list"></div>
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="composer" class="modal hidden" aria-hidden="true">
+        <div class="modalBox">
+            <div class="modalHeader">
+                <h3>Create a Bin</h3>
+                <button id="closeComposer" class="iconBtn" aria-label="Close">✕</button>
+            </div>
+            <form id="form" class="form">
+                <label>Title
+                    <input id="title" maxlength="120" placeholder="Optional title" />
+                </label>
+                <label>Content
+                    <textarea id="content" rows="10" placeholder="Only text (links will be removed)"></textarea>
+                </label>
+                <div class="row end">
+                    <button type="button" id="cancelComposer">Cancel</button>
+                    <button type="submit">Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="editor" class="modal hidden" aria-hidden="true">
+        <div class="modalBox">
+            <div class="modalHeader">
+                <h3>Edit Bin</h3>
+                <button id="closeEditor" class="iconBtn" aria-label="Close">✕</button>
+            </div>
+            <form id="editForm" class="form">
+                <input type="hidden" id="editBinId" />
+                <label>Title
+                    <input id="editTitle" maxlength="120" />
+                </label>
+                <label>Content
+                    <textarea id="editContent" rows="10"></textarea>
+                </label>
+                <div class="row end">
+                    <button type="button" id="cancelEditor">Cancel</button>
+                    <button type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footGrid">
+            <div>© <span id="year"></span> BIN Social</div>
+            <div class="links">
+                <a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a>
+                <a id="fbLink" href="#" target="_blank" rel="noopener">Facebook</a>
+                <a id="ghLink" href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
